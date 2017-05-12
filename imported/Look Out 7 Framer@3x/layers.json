@@ -25,6 +25,105 @@
 		},
 		"children": [
 			{
+				"objectId": "AAD73EC9-E7D8-450C-8DA0-AD06BADFD998",
+				"kind": "group",
+				"name": "reportToastButtonText",
+				"originalName": "reportToastButtonText",
+				"maskFrame": null,
+				"layerFrame": {
+					"x": 24,
+					"y": 557,
+					"width": 311,
+					"height": 14
+				},
+				"visible": true,
+				"metadata": {
+					"opacity": 1
+				},
+				"image": {
+					"path": "images/Layer-reportToastButtonText-qufenznf.png",
+					"frame": {
+						"x": 24,
+						"y": 557,
+						"width": 311,
+						"height": 14
+					}
+				},
+				"children": []
+			},
+			{
+				"objectId": "FF2C13CE-1B8B-426F-BB81-04C9307BC98E",
+				"kind": "group",
+				"name": "reportToastPreview",
+				"originalName": "reportToastPreview",
+				"maskFrame": null,
+				"layerFrame": {
+					"x": -6,
+					"y": 530,
+					"width": 372,
+					"height": 74
+				},
+				"visible": true,
+				"metadata": {
+					"opacity": 1
+				},
+				"image": {
+					"path": "images/Layer-reportToastPreview-rkyyqzez.png",
+					"frame": {
+						"x": -6,
+						"y": 530,
+						"width": 372,
+						"height": 74
+					}
+				},
+				"children": []
+			},
+			{
+				"objectId": "3B023553-1260-4370-A76D-CC412D39DB79",
+				"kind": "group",
+				"name": "reportButtonPlaceholder",
+				"originalName": "reportButtonPlaceholder",
+				"maskFrame": null,
+				"layerFrame": {
+					"x": 8,
+					"y": 518,
+					"width": 345,
+					"height": 64
+				},
+				"visible": true,
+				"metadata": {
+					"opacity": 1
+				},
+				"children": []
+			},
+			{
+				"objectId": "92B2527E-6915-4055-A85E-E67E898B9D09",
+				"kind": "group",
+				"name": "reportButton",
+				"originalName": "reportButton",
+				"maskFrame": null,
+				"layerFrame": {
+					"x": 6,
+					"y": 516,
+					"width": 349,
+					"height": 70
+				},
+				"visible": true,
+				"metadata": {
+					"opacity": 1
+				},
+				"image": {
+					"path": "images/Layer-reportButton-otjcmjuy.png",
+					"frame": {
+						"x": 6,
+						"y": 516,
+						"width": 349,
+						"height": 70
+					}
+				},
+				"children": []
+			},
+			{
 				"objectId": "1AEBE38F-C705-4786-94D6-26B831292858",
 				"kind": "group",
 				"name": "topStatus",
@@ -181,33 +280,6 @@
 						"y": 592,
 						"width": 360,
 						"height": 48
-					}
-				},
-				"children": []
-			},
-			{
-				"objectId": "92B2527E-6915-4055-A85E-E67E898B9D09",
-				"kind": "group",
-				"name": "reportButton",
-				"originalName": "reportButton",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 6,
-					"y": 516,
-					"width": 349,
-					"height": 70
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-reportButton-otjcmjuy.png",
-					"frame": {
-						"x": 6,
-						"y": 516,
-						"width": 349,
-						"height": 70
 					}
 				},
 				"children": []
@@ -498,214 +570,6 @@
 						"children": []
 					}
 				]
-			}
-		]
-	},
-	{
-		"objectId": "291779DB-27BF-49F9-A593-5B1528FAD185",
-		"kind": "artboard",
-		"name": "onWay3Warning",
-		"originalName": "onWay3Warning",
-		"maskFrame": null,
-		"layerFrame": {
-			"x": 663,
-			"y": 11,
-			"width": 360,
-			"height": 640
-		},
-		"visible": true,
-		"metadata": {},
-		"backgroundColor": "rgba(255, 255, 255, 1)",
-		"image": {
-			"path": "images/Layer-onWay3Warning-mjkxnzc5.png",
-			"frame": {
-				"x": 663,
-				"y": 11,
-				"width": 360,
-				"height": 640
-			}
-		},
-		"children": [
-			{
-				"objectId": "58534C52-A174-4809-898F-311A57529D8B",
-				"kind": "group",
-				"name": "topStatus1",
-				"originalName": "topStatus",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 0,
-					"y": 0,
-					"width": 360,
-					"height": 24
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-topStatus-ntg1mzrd.png",
-					"frame": {
-						"x": 0,
-						"y": 0,
-						"width": 360,
-						"height": 24
-					}
-				},
-				"children": []
-			},
-			{
-				"objectId": "D1ABC16C-2D7D-48DE-82C4-7FFE489B5E74",
-				"kind": "group",
-				"name": "topBarOnWay_Copy",
-				"originalName": "topBarOnWay Copy",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": -4,
-					"y": -4,
-					"width": 368,
-					"height": 124
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-topBarOnWay_Copy-rdfbqkmx.png",
-					"frame": {
-						"x": -4,
-						"y": -4,
-						"width": 368,
-						"height": 124
-					}
-				},
-				"children": []
-			},
-			{
-				"objectId": "BC5C8A28-5F64-4484-BFA8-81F65A160791",
-				"kind": "group",
-				"name": "systemNavigation1",
-				"originalName": "systemNavigation",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 0,
-					"y": 592,
-					"width": 360,
-					"height": 48
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-systemNavigation-qkm1qzhb.png",
-					"frame": {
-						"x": 0,
-						"y": 592,
-						"width": 360,
-						"height": 48
-					}
-				},
-				"children": []
-			},
-			{
-				"objectId": "2F87F960-786B-4944-85EF-30DA77F7133D",
-				"kind": "group",
-				"name": "Group",
-				"originalName": "Group",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 216.00000000000003,
-					"y": 285,
-					"width": 181,
-					"height": 151
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"children": [
-					{
-						"objectId": "06106C76-2288-4682-8F4E-BDB5513C1ABA",
-						"kind": "group",
-						"name": "Group_Copy_3",
-						"originalName": "Group Copy 3",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 218.97753267446387,
-							"y": 284,
-							"width": 174,
-							"height": 67
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-Group_Copy_3-mdyxmdzd.png",
-							"frame": {
-								"x": 218.97753267446387,
-								"y": 284,
-								"width": 174,
-								"height": 67
-							}
-						},
-						"children": []
-					},
-					{
-						"objectId": "0EC7925C-EA24-41AF-AD30-0021B80CADFD",
-						"kind": "group",
-						"name": "Group_Copy_2",
-						"originalName": "Group Copy 2",
-						"maskFrame": null,
-						"layerFrame": {
-							"x": 215.0000000000001,
-							"y": 359.8958446413476,
-							"width": 174,
-							"height": 67
-						},
-						"visible": true,
-						"metadata": {
-							"opacity": 1
-						},
-						"image": {
-							"path": "images/Layer-Group_Copy_2-mevdnzky.png",
-							"frame": {
-								"x": 215.0000000000001,
-								"y": 359.8958446413476,
-								"width": 174,
-								"height": 67
-							}
-						},
-						"children": []
-					}
-				]
-			},
-			{
-				"objectId": "B61BEC28-5DA1-4C63-8178-17F6882A2C9D",
-				"kind": "group",
-				"name": "map1",
-				"originalName": "map",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 0,
-					"y": 0,
-					"width": 360,
-					"height": 640
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-map-qjyxqkvd.png",
-					"frame": {
-						"x": 0,
-						"y": 0,
-						"width": 360,
-						"height": 640
-					}
-				},
-				"children": []
 			}
 		]
 	}

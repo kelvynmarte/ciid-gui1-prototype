@@ -19,6 +19,8 @@ changeState = (state) ->
 			sketch5.onboardingText.stateSwitch "hide"
 			sketch5.warningNotification.stateSwitch "hide"
 			sketch5.mapDetail.stateSwitch "hide"
+			sketch5.reportToastButtonText.stateSwitch "hide"
+			sketch5.reportToastPreview.visible = false
 
 			Utils.delay 1.0, ->
 				onboardingBackgroundIcon.animate "show"
@@ -53,6 +55,12 @@ changeState = (state) ->
 			Utils.delay 0.6, ->
 				sketch5.map.animate "zoomToWarning"
 				sketch5.mapDetail.animate "show"
+				
+		when 4
+			sketch5.map.animate "zoomOutOfWarning"
+			sketch5.mapDetail.animate "hide"
+
+
 
 # SPACEBREW 
 # 
@@ -127,6 +135,7 @@ reportButton = new Layer
 	shadowBlur: 6
 	borderRadius: 6
 	clip: true
+	superLayer: sketch5.reportButtonPlaceholder
 	
 
 
@@ -145,10 +154,14 @@ reportButtonClick = new Layer
 reportButtonClick.states.defualt =
 	scale: 1
 	opacity: 0.0
+	y: 1555
+	x: 25
+	borderRadius: 6
 	animationOptions:
 		curve: "cubic-bezier(0.4, 0.0, 0.2, 1)"#Spring(0.75)
 		time: 0.6
 		
+	
 reportButtonClick.states.tap =
 	scale: 40.00
 	opacity: 0.17
@@ -157,10 +170,15 @@ reportButtonClick.states.tap =
 		time: 0.6
 
 reportButton.states.default =
+	y: 1555
+	x: 25
+	width: 1032
+	height: 189
 	backgroundColor: "rgba(0,0,0,1)"
 	shadowColor: "rgba(0,0,0,0.24)"
 	shadowY: 6
 	shadowBlur: 6
+	borderRadius: 6
 	animationOptions:
 		curve: "cubic-bezier(0.4, 0.0, 0.2, 1)" #Spring(0.75)
 		time: 0.3
@@ -171,6 +189,20 @@ reportButton.states.tap =
 	shadowY: 24
 	shadowBlur: 24
 	shadowSpread: 1
+	animationOptions:
+		curve: "cubic-bezier(0.4, 0.0, 0.2, 1)" #Spring(0.75)
+		time: 0.3
+		
+reportButton.states.toast =
+	backgroundColor: "rgba(251,245,34,1)"
+	shadowColor: "rgba(0,0,0,0.24)"
+	shadowY: 6
+	shadowBlur: 6
+	x: 0
+	width: 1080
+	height: 167
+	y: 1609
+	borderRadius: 0
 	animationOptions:
 		curve: "cubic-bezier(0.4, 0.0, 0.2, 1)" #Spring(0.75)
 		time: 0.3
@@ -187,20 +219,40 @@ reportButtonText = new TextLayer
 	superLayer: reportButton
 	y: 68
 
-# reportButton.onMouseDown (event, layer) ->
-# 	reportButton.animate "tap"
-# 	reportButtonClick.animate "tap"
-# 
-# reportButton.onMouseUp (event, layer) ->
-# 	reportButton.animate "default"
-# 	reportButtonClick.animate "default"
+sketch5.reportToastButtonText.states.hide =
+	opacity: 0.00
+	animationOptions:
+		curve: "cubic-bezier(0.4, 0.0, 0.2, 1)" #Spring(0.75)
+		time: 0.3
+	
+sketch5.reportToastButtonText.states.show =
+	opacity: 1.00
+	animationOptions:
+		curve: "cubic-bezier(0.4, 0.0, 0.2, 1)" #Spring(0.75)
+		time: 0.3
+
+
+
+reportToastUndo = new Layer
+	x: 833
+	y: 1623
+	width: 247
+	height: 153
+	opacity: 0.00
+
+reportToastUndo.onTap (event, layer) ->
+	reportButton.animate "default"
+	reportButtonClick.stateSwitch "default"
+	sketch5.reportToastButtonText.animate "hide"
 
 reportButton.onTapStart (event, layer) ->
-	reportButton.animate "tap"
+	reportButton.animate "toast"
 	reportButtonClick.animate "tap"
-	Utils.delay 3.0, ->
+	sketch5.reportToastButtonText.animate "show"
+	Utils.delay 9.0, ->
 		reportButton.animate "default"
-		reportButtonClick.animate "default"
+		reportButtonClick.stateSwitch "default"
+		sketch5.reportToastButtonText.animate "hide"
 		
 	
 
@@ -353,22 +405,26 @@ sketch5.warningSign.states.hide =
 		curve: "cubic-bezier(0.4, 0.0, 0.2, 1)"
 		time: 0.6
 
+# MAP
+
 sketch5.mapDetail.superLayer = sketch5.map
 sketch5.mapDetail.x = 1286
 sketch5.mapDetail.y = 1218
 sketch5.mapDetail.scale = 0.07
 
-
-# MAP
 sketch5.mapDetail.states.hide =
 	opacity: 0
+	animationOptions:
+		curve: "cubic-bezier(0.4, 0.0, 0.2, 1)"#Spring(0.75)
+		time: 0.3
+		delay: 0.3
 	
 sketch5.mapDetail.states.show =
 	opacity: 1
 	animationOptions:
 		curve: "cubic-bezier(0.4, 0.0, 0.2, 1)"#Spring(0.75)
 		time: 0.3
-		delay: 1.4
+		delay: 0.5
 
 sketch5.map.states.zoomToWarning =
 	scale: 14
@@ -376,7 +432,12 @@ sketch5.map.states.zoomToWarning =
 	y: 9614
 	animationOptions:
 		curve: "cubic-bezier(0.4, 0.0, 0.2, 1)"#Spring(0.75)
-		time: 2
+		time: 1
+
+sketch5.map.states.zoomOutOfWarning =
+	scale: 4
+	x: 3206
+	y: 1010
 
 # BIKE ANIMATION
 	
@@ -390,6 +451,8 @@ window.addEventListener 'devicemotion', (event) ->
 		nextState()
 	if(sketch5.map.y > -2280 && currentState == 2)
 		nextState()
+	if( sketch5.map.y > 10894 && currentState == 3 )
+		nextState()
 
 	return
 	
@@ -399,6 +462,8 @@ document.onkeydown = (e) ->
 	if(sketch5.map.y > -2700 && currentState == 1)
 		nextState()
 	if(sketch5.map.y > -2280 && currentState == 2)
+		nextState()
+	if( sketch5.map.y > 10894 && currentState == 3 )
 		nextState()
 	return
 
