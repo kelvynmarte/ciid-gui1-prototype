@@ -1,0 +1,24 @@
+{
+  "orientation" : 0,
+  "updateDelay" : 0.3,
+  "cachedDeviceHeight" : 1920,
+  "contentScale" : 1,
+  "cachedDeviceWidth" : 1080,
+  "fullScreen" : false,
+  "sharedPrototype" : 0,
+  "propertyPanelToggleStates" : {
+    "Filters" : false
+  },
+  "deviceType" : "google-pixel-quite-black",
+  "projectId" : "2B518B99-0D45-4A26-BE4A-06003538012E",
+  "deviceOrientation" : 0,
+  "selectedHand" : "",
+  "foldedCodeRanges" : [
+    "{1444, 1057}",
+    "{2502, 321}",
+    "{2824, 1882}",
+    "{4707, 2449}",
+    "{7157, 836}"
+  ],
+  "deviceScale" : "fit"
+}
