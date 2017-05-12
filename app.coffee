@@ -62,8 +62,6 @@ changeState = (state) ->
 			sketch5.map.animate "zoomOutOfWarning"
 			sketch5.mapDetail.animate "hide"
 
-
-
 # SPACEBREW 
 # 
 # Spacebrew = require("npm").Spacebrew
@@ -240,8 +238,8 @@ sketch5.reportToastButtonText.states.show =
 	animationOptions:
 		curve: "cubic-bezier(0.4, 0.0, 0.2, 1)" #Spring(0.75)
 		time: 0.3
-
-
+		
+tempFrameWarningPlaced = sketch5.warningSignPlaced.screenFrame
 
 reportToastUndo = new Layer
 	x: 833
@@ -250,14 +248,37 @@ reportToastUndo = new Layer
 	height: 153
 	opacity: 0.00
 
+
+
+sketch5.warningSignPlaced.states.hide =
+	opacity: 0.00
+
+sketch5.warningSignPlaced.states.show =
+	opacity: 1.00
+
 reportToastUndo.onTap (event, layer) ->
 	reportButton.animate "default"
 	reportButtonClick.stateSwitch "default"
 	sketch5.reportToastButtonText.animate "hide"
+	sketch5.warningSignPlaced.animate "hide"
 
 reportButton.onTapStart (event, layer) ->
-	reportButton.animate "toast"
 	reportButtonClick.animate "tap"
+
+reportButton.onTap (event, layer) ->
+	# PLACE REPORT
+	sketch5.warningSignPlaced.superLayer = null
+	sketch5.warningSignPlaced.x = sketch5.bike.x
+	sketch5.warningSignPlaced.y = sketch5.bike.y
+	sketch5.warningSignPlaced.superLayer = sketch5.map
+	sketch5.warningSignPlaced.frame = Utils.convertPoint(tempFrameWarningPlaced, sketch5.bike, sketch5.warningSignPlaced)
+	sketch5.warningSignPlaced.y += 30
+	sketch5.warningSignPlaced.animate "show"
+	sketch5.warningSignPlaced.y
+
+	
+	# ANIMATE
+	reportButton.animate "toast"
 	sketch5.reportToastButtonText.animate "show"
 	Utils.delay 9.0, ->
 		reportButton.animate "hide"
@@ -492,7 +513,7 @@ window.addEventListener 'devicemotion', (event) ->
 document.onkeydown = (e) ->
 	if (currentState > 0 )
 		if e.keyCode == 38
-			sketch5.map.y += 20	
+			sketch5.map.y += 8	
 		if(sketch5.map.y > -2700 && currentState == 1)
 			nextState()
 		if(sketch5.map.y > -2280 && currentState == 2)

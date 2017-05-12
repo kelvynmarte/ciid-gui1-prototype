@@ -339,6 +339,33 @@
 				"children": []
 			},
 			{
+				"objectId": "32758AF4-FCB7-4D01-AF02-82CAA3E0A79B",
+				"kind": "group",
+				"name": "warningSignPlaced",
+				"originalName": "warningSignPlaced",
+				"maskFrame": null,
+				"layerFrame": {
+					"x": 157,
+					"y": 338,
+					"width": 44,
+					"height": 38
+				},
+				"visible": true,
+				"metadata": {
+					"opacity": 1
+				},
+				"image": {
+					"path": "images/Layer-warningSignPlaced-mzi3nthb.png",
+					"frame": {
+						"x": 157,
+						"y": 338,
+						"width": 44,
+						"height": 38
+					}
+				},
+				"children": []
+			},
+			{
 				"objectId": "822177C8-AB7E-4CE0-BE10-4251EE326BED",
 				"kind": "group",
 				"name": "mapDetail",
