@@ -291,6 +291,33 @@ window.__imported__["Look Out 7 Framer@3x/layers.json.js"] = [
 		},
 		"children": [
 			{
+				"objectId": "4E045D83-C86A-4787-9F68-6203453439DA",
+				"kind": "group",
+				"name": "systemNavigation",
+				"originalName": "systemNavigation",
+				"maskFrame": null,
+				"layerFrame": {
+					"x": 0,
+					"y": 592,
+					"width": 360,
+					"height": 48
+				},
+				"visible": true,
+				"metadata": {
+					"opacity": 1
+				},
+				"image": {
+					"path": "images/Layer-systemNavigation-neuwndve.png",
+					"frame": {
+						"x": 0,
+						"y": 592,
+						"width": 360,
+						"height": 48
+					}
+				},
+				"children": []
+			},
+			{
 				"objectId": "AAD73EC9-E7D8-450C-8DA0-AD06BADFD998",
 				"kind": "group",
 				"name": "reportToastButtonText",
@@ -519,33 +546,6 @@ window.__imported__["Look Out 7 Framer@3x/layers.json.js"] = [
 						"y": -464,
 						"width": 728,
 						"height": 728
-					}
-				},
-				"children": []
-			},
-			{
-				"objectId": "4E045D83-C86A-4787-9F68-6203453439DA",
-				"kind": "group",
-				"name": "systemNavigation",
-				"originalName": "systemNavigation",
-				"maskFrame": null,
-				"layerFrame": {
-					"x": 0,
-					"y": 592,
-					"width": 360,
-					"height": 48
-				},
-				"visible": true,
-				"metadata": {
-					"opacity": 1
-				},
-				"image": {
-					"path": "images/Layer-systemNavigation-neuwndve.png",
-					"frame": {
-						"x": 0,
-						"y": 592,
-						"width": 360,
-						"height": 48
 					}
 				},
 				"children": []

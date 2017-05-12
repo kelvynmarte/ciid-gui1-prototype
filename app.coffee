@@ -15,12 +15,14 @@ changeState = (state) ->
 	currentState = state
 	switch state
 		when 0
-		
 			sketch5.onboardingText.stateSwitch "hide"
 			sketch5.warningNotification.stateSwitch "hide"
 			sketch5.mapDetail.stateSwitch "hide"
 			sketch5.reportToastButtonText.stateSwitch "hide"
 			sketch5.reportToastPreview.visible = false
+			sketch5.map.stateSwitch "start"
+			sketch5.warningSign.stateSwitch "show"
+			sketch5.onboardingWarningSign.stateSwitch "show"
 
 			Utils.delay 1.0, ->
 				onboardingBackgroundIcon.animate "show"
@@ -207,6 +209,14 @@ reportButton.states.toast =
 		curve: "cubic-bezier(0.4, 0.0, 0.2, 1)" #Spring(0.75)
 		time: 0.3
 		
+reportButton.states.hide =
+	x: 0
+	y: 1776
+	borderRadius: 6
+	animationOptions:
+		curve: "cubic-bezier(0.4, 0.0, 0.2, 1)" #Spring(0.75)
+		time: 0.3
+		
 reportButton.visible = true
 reportButtonText = new TextLayer
 	text: "REPORT STRESSFUL AREA"
@@ -250,9 +260,12 @@ reportButton.onTapStart (event, layer) ->
 	reportButtonClick.animate "tap"
 	sketch5.reportToastButtonText.animate "show"
 	Utils.delay 9.0, ->
-		reportButton.animate "default"
+		reportButton.animate "hide"
 		reportButtonClick.stateSwitch "default"
-		sketch5.reportToastButtonText.animate "hide"
+		sketch5.reportToastButtonText.stateSwitch "hide"
+	Utils.delay 11.0, ->
+		reportButton.animate "default"
+
 		
 	
 
@@ -367,6 +380,8 @@ sketch5.onboardingWarningSign.states.hide =
 		curve: "cubic-bezier(0.4, 0.0, 0.2, 1)"#Spring(0.75)
 		time: 0.3
 		
+sketch5.onboardingWarningSign.states.show =
+	opacity: 1.00
 
 
 # WARINING PULSE
@@ -404,6 +419,12 @@ sketch5.warningSign.states.hide =
 	animationOptions:
 		curve: "cubic-bezier(0.4, 0.0, 0.2, 1)"
 		time: 0.6
+		
+sketch5.warningSign.states.show =
+	opacity: 1.00
+	animationOptions:
+		curve: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+		time: 0.6
 
 # MAP
 
@@ -438,33 +459,50 @@ sketch5.map.states.zoomOutOfWarning =
 	scale: 4
 	x: 3206
 	y: 1010
+	
+
+sketch5.map.states.start =
+	opacity: 1
+	x: -1950
+	y: -2809
+	scale: 1
+	
+
 
 # BIKE ANIMATION
 	
 
 window.addEventListener 'devicemotion', (event) ->
-	accX = event.accelerationIncludingGravity.y / 10 
-	accY = (event.accelerationIncludingGravity.y - 0.1 )  / 10
-	if(accY > 0)
-		sketch5.map.y += Math.abs(accY)
-	if(sketch5.map.y > -2700 && currentState == 1)
-		nextState()
-	if(sketch5.map.y > -2280 && currentState == 2)
-		nextState()
-	if( sketch5.map.y > 10894 && currentState == 3 )
-		nextState()
+	if (currentState > 0 )
+		accX = event.accelerationIncludingGravity.y / 10 
+		accY = (event.accelerationIncludingGravity.y - 0.1 )  / 4
+		if(accY > 0)
+			sketch5.map.y += Math.abs(accY)
+		if(sketch5.map.y > -2700 && currentState == 1)
+			nextState()
+		if(sketch5.map.y > -2280 && currentState == 2)
+			nextState()
+		if( sketch5.map.y > 10894 && currentState == 3 )
+			nextState()
+		if( sketch5.map.y > 1700 && currentState == 4 )
+			changeState(0) 
 
 	return
 	
 document.onkeydown = (e) ->
-	if e.keyCode == 38
-		sketch5.map.y += 20	
-	if(sketch5.map.y > -2700 && currentState == 1)
-		nextState()
-	if(sketch5.map.y > -2280 && currentState == 2)
-		nextState()
-	if( sketch5.map.y > 10894 && currentState == 3 )
-		nextState()
+	if (currentState > 0 )
+		if e.keyCode == 38
+			sketch5.map.y += 20	
+		if(sketch5.map.y > -2700 && currentState == 1)
+			nextState()
+		if(sketch5.map.y > -2280 && currentState == 2)
+			nextState()
+		if( sketch5.map.y > 10894 && currentState == 3 )
+			nextState()
+		if( sketch5.map.y > 1700 && currentState == 4 )
+			changeState(0) 
+
+	
 	return
 
 changeState(0) 
